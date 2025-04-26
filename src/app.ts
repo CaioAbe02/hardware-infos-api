@@ -1,5 +1,6 @@
 import express from "express"
-import Routes from "./routes"
+import Routes from "./v1/routes"
+import cors from "cors"
 
 export class App {
   public server: express.Application
@@ -8,6 +9,7 @@ export class App {
     this.server = express()
     this.middleware()
     this.router()
+    this.server.use(cors())
   }
 
   private middleware() {
